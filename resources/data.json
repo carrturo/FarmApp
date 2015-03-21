@@ -1,0 +1,108 @@
+{
+    "data": {
+        "medicamentos": [
+            {
+                "id": "1",
+                "nombre": "Vitamina C",
+                "codigo": "7410002801728",
+                "presentacion": "Comprimido",
+                "foto": "1.jpg",
+                "laboratorio": "MK",
+                "tipoVenta": "Sin Receta Médica",
+                "tamaño": "500 mg",
+                "compuestoActivo": "Ácido Ascórbico",
+                "precio": 159.99,
+                "idFarmacia": "1"
+            },{
+                "id": "2",
+                "nombre": "Efortil",
+                "codigo": "65481452145524",
+                "presentacion": "Solución Oral Gotas",
+                "foto": "2.jpg",
+                "laboratorio": "BOEHRINGER INGELHEIM",
+                "tipoVenta": "Con Receta Médica",
+                "tamaño": "7,5 mg/mL",
+                "compuestoActivo": "Etilefrina hidrocloruro",
+                "precio": 430.00,
+                "idFarmacia": "3" 
+            },{
+                "id": "3",
+                "nombre": "Pepto-Bismol",
+                "codigo": "7410002801728",
+                "presentacion": "Jarabe",
+                "foto": "3.jpg",
+                "laboratorio": "Procter & Gamble",
+                "tipoVenta": "Sin Receta Médica",
+                "tamaño": "236 mL",
+                "compuestoActivo": "Salicilato de Bismuto",
+                "precio": 50.00,
+                "idFarmacia": "1"
+            },{
+                "id": "4",
+                "nombre": "Sukrol",
+                "codigo": "7410002801728",
+                "presentacion": "Comprimido",
+                "foto": "4.jpg",
+                "laboratorio": "FARMAMEDICA",
+                "tipoVenta": "Sin Receta Médica",
+                "tamaño": "Frasco con 100 Tabletas",
+                "compuestoActivo": "Ácido Glutámico",
+                "precio": 115.00,
+                "idFarmacia": "2"
+            },{
+                "id": "5",
+                "nombre": "Tevirin",
+                "codigo": "7410002801728",
+                "presentacion": "Gotas",
+                "foto": "5.jpg",
+                "laboratorio": "Andifar",
+                "tipoVenta": "Sin Receta Médica",
+                "tamaño": "5 mL",
+                "compuestoActivo": "Fenilefrina HCl",
+                "precio": 20.00,
+                "idFarmacia": "2"
+            },{
+                "id": "6",
+                "nombre": "Sukrol Niños",
+                "codigo": "7410002801728",
+                "presentacion": "Jarabe",
+                "foto": "6.jpg",
+                "laboratorio": "FARMAMEDICA",
+                "tipoVenta": "Sin Receta Médica",
+                "tamaño": "300 mL",
+                "compuestoActivo": "Ácido Glutámico",
+                "precio": 325.00,
+                "idFarmacia": "1"
+            }
+        ],
+        "farmacias": { 
+            "1": {
+                "nombre": "Farmacia Kielsa #41",
+                "horario": "24 Hrs / Lunes - Domingo",
+                "telefono": "800-2207-1000",
+                "entregaDomicilio": "Sí",
+                "distancia": "2.1 Km.",
+                "ubicacion": "Col. Kennedy, Tegucigalpa, Francisco Morazán",
+                "abierta": "Sí"
+            },
+            "2": {
+                "nombre": "Vaver Col. Kennedy",
+                "horario": "Lunes a Viernes 8:00 am a 8:00 pm. Sabado 8:00am a 6:00pm",
+                "telefono": "2228-6343",
+                "entregaDomicilio": "No",
+                "distancia": "3.4 Km",
+                "ubicacion": "Col. Kennedy final de la calle el comercial a la par de Banco Procredit",
+                "abierta": "No"
+            },
+            "3": {
+                "nombre": "Farmacia del Ahorro Kennedy",
+                "horario": "Lunes a Viernes 8am a 8pm, Sábado 8am a 6pm.",
+                "telefono": "2230-2266, 2230-6721",
+                "entregaDomicilio": "No",
+                "distancia": "2.4 km.",
+                "ubicacion": "CC Paseo Kennedy, 2o. Nivel contiguo a Banco de Occidente",
+                "abierta": "Sí"
+            }
+        }
+    }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>FarmApp</title>
+		<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+		<script src="resources/js/jquery-2.1.3.min.js"></script>
+		<script src="resources/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="resources/css/jquery-ui.min.css">
+		<script src="resources/js/jquery-ui.min.js"></script>
+		<style type="text/css">
+			html, body {
+				width: 100%;
+				height: 100%;
+			}
+		 	#bar{
+		 		background-color: #669900;
+		 		height:48px;
+		 		width: 100%;
+		 	}
+		 	#barTitle{
+		 		color: white;
+		 		font-weight: bold;
+		 		text-align: center;
+		 		font-size: 30px;
+		 		margin-top: 6px;
+		 		position: relative;
+		 		vertical-align: middle;
+		 	}
+		 	#menuButton{
+		 		position: relative;
+		 	}
+			.centrar{
+				display: block;
+			    margin-left: auto;
+			    margin-right: auto;
+			}
+			.row {
+			  margin-right: 0px;
+			  margin-left: 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="index.html">
+			        <img alt="Brand" src="resources/images/logo.png">
+			      </a>
+			    </div>
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav navbar-right">
+			        <li><a href="busqueda.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</a></li>
+			        <li><a href="historial.html"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Historial de Consultas</a></li>
+			        <li><a href="expediente.html"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Mi Expediente</a></li>
+			        <li><a href="consulta.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Consulta en Linea</a></li>
+			        <li><a href=""><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Ayuda</a></li>
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Información<span class="caret"></span></a>
+			          <ul class="dropdown-menu" role="menu">
+			            <li><a href="infoSuscripcion.html"><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span> Información de Suscripción</a></li>
+			            <li><a href="infoApp.html"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> Información de Aplicación</a></li>
+			          </ul>
+			        </li>
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+		</header>
+	  	<div id="content">
+	  		<div class="row">
+			  <div class="col-md-4 col-md-offset-4">
+			  	<h1>Búsqueda Avanzada</h1><br>
+			  	<form>
+				  <div class="form-group">
+				    <label for="nombre">Nombre de Medicamento</label>
+				    <input type="search" id="nombre" class="form-control" placeholder="Escriba el Nombre del Producto" aria-describedby="basic-addon2">
+				  </div>
+				  <br>
+				  <div class="form-group">
+				    <label for="presentacion">Presentación</label>
+				    <select id="presentacion" class="form-control">
+				      <option>Cualquiera</option>
+					  <option>Comprimido</option>
+					  <option>Cápsula</option>
+					  <option>Jarabe</option>
+					  <option>Suspensión</option>
+					  <option>Pomada</option>
+					  <option>Supositorio</option>
+					  <option>Inhalador Bucal</option>
+					  <option>Inhalador Nasal</option>
+					  <option>Inyectable</option>
+					</select>
+				  </div>
+				  <br>
+				  <div class="form-group">
+				    <label for="laboratorio">Laboratorio Que Lo Produce</label>
+				    <input type="text" class="form-control" id="laboratorio" placeholder="Nombre del Laboratorio (Opcional)">
+				  </div>
+				  <br>
+				  <div class="checkbox">
+				    <label>
+				      <input type="checkbox" id="ventaSinReceta"> Buscar Solo Medicamentos con Venta Sin Receta
+				    </label>
+				  </div>
+				  <br>
+				  <div class="checkbox">
+				    <label>
+				      <input type="checkbox" id="farmaciasAbiertas"> Buscar Solo en Farmacias Abiertas
+				    </label>
+				  </div>
+				  <br>
+				  <div class="checkbox">
+				    <label>
+				      <input type="checkbox" id="servicioDomicilio"> Buscar Solo en Farmacias con Servicio a Domicilio
+				    </label>
+				  </div>
+				  <br>
+				  <button type="submit" class="btn btn-success centrar" id="bBuscar">Buscar</button>
+				  <br>
+				</form>
+			  </div>
+			</div>  		
+	  	</div>
+	</body>
+
+	<script>
+		$( document ).ready(function() {
+	    	// Cargar Datos
+	    	var datos;
+	    	$.getJSON( "resources/data.json", function( data ) {
+	    		data = data.data;
+	    		var nombres = [];
+	    		$.each( data.medicamentos, function( key, value ) {
+					nombres.push(value.nombre);
+				});
+
+	    		$("#nombre").autocomplete({
+			      source: nombres
+			    });
+
+			});
+			
+			$("#Bbuscar").click(function() {
+				var texto = $("#inputBusqueda").val();
+				if (texto.length > 0){
+					window.location.href = "resultado.html?nombre=" + texto;
+				}
+			});
+
+			$("#BbusquedaAvanzada").click(function() {
+				window.location.href = "busqueda.html";
+			});
+
+		});
+	</script>
+
+</html>
